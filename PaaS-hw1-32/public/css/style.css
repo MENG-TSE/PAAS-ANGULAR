@@ -1,0 +1,28 @@
+section {
+    max-width: 1100px;
+    margin: 20px auto;
+  }
+
+  #section_product {
+    max-width: 850px;
+  }
+
+  h2 {
+    text-align: center;
+    font-weight: bold;
+  }
+
+  #productTable td {
+    text-align: center;
+    vertical-align: middle;
+    height: 110px;
+  }
+
+  #userTable td {
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  #productTable img {
+    height: 100%;
+  }
