@@ -1,0 +1,41 @@
+<section>
+        <h2>社群精準行銷</h2>
+        <table class="table table-bordered table-hover" id="userTable">
+            <tr>
+                <th>序號</th>
+                <th>學號</th>
+                <th>姓名</th>
+                <th>手機</th>
+                <th>Email</th>
+                <th>LineId</th>
+                <th>WeChatId</th>
+                <th>角色</th>
+                <th>
+                    <input type="file" style="display: none;" #usersFile id="usersFile" (change)="pushUsersByFile($event)" accept=".csv">
+                    <button type="button" (click)="selectUsersFile()" class="btn btn-default">匯入成員</button>
+                </th>
+            </tr>
+            <ng-container *ngFor="let user of users">
+                <tr *ngIf="user != undefined && user.visible">
+                    <td>{{user.cid}}</td>
+                    <td>{{user.sid}}</td>
+                    <td>{{user.name}}</td>
+                    <td>{{user.phone}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.lineId}}</td>
+                    <td>{{user.wechatId}}</td>
+                    <td>{{user.role}}</td>
+                    <td>
+                        <button type="button" *ngIf="user.lineId == ''" (click)="follow(user)" class="btn btn-success">關注</button>
+                        <button type="button" *ngIf="user.lineId != ''" (click)="cancelFollow(user)" class="btn btn-primary">退出</button>
+                    </td>
+                </tr>
+            </ng-container>
+    
+            <tr>
+                <td *ngIf="users.length == 0" style="height: auto;" colspan="9">
+                    無成員資料
+                </td>
+            </tr>
+        </table>
+    </section>

@@ -1,0 +1,51 @@
+<section id="section_product">
+    <h2>PaaS 智能市集</h2>
+    <table class="table table-bordered table-hover" id="productTable">
+        <tr>
+            <th>序號</th>
+            <th>類別</th>
+            <th>品名</th>
+            <th>圖片</th>
+            <th>評價</th>
+            <th>價格</th>
+            <th>
+                <input type="file" style="display: none;" #productsFile id="productsFile" (change)="pushProductsByFile($event)" accept=".json">
+                <button type="button" (click)="selectProductsFile()" class="btn btn-default">匯入商品</button>
+            </th>
+        </tr>
+        <ng-container *ngFor="let product of products">
+            <tr *ngIf="product != undefined">
+                <td>{{product.pid}}</td>
+                <td>{{product.category}}</td>
+                <td>{{product.name}}</td>
+                <td>
+                    <div class="productImage">
+                        <img [src]="product.imageUrl">
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="product.score != 0">
+                        {{product.score}}
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="product.price != 0">
+                        {{product.price}}
+                    </div>
+                </td>
+                <td>
+                    <button type="button" *ngIf="product.score == 0" (click)="updateProduct(product)" class="btn btn-success">定價</button>
+                    <button type="button" *ngIf="product.score != 0" (click)="removeProduct(product)" class="btn btn-primary">刪除</button>
+                </td>
+
+
+            </tr>
+        </ng-container>
+
+        <tr>
+            <td *ngIf="products.length == 0" style="height: auto;" colspan="7">
+                無商品資料
+            </td>
+        </tr>
+    </table>
+</section>
