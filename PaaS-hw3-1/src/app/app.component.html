@@ -1,0 +1,72 @@
+<section id="section_product">
+    <h2>商品管理</h2>
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">序號</span>
+        <input type="text" [(ngModel)]="product.productId" class="form-control" />
+        <span class="input-group-addon" id="basic-addon1">品名</span>
+        <input type="text" [(ngModel)]="product.name" class="form-control"/>
+        <span class="input-group-addon" id="basic-addon1">價格</span>
+        <input type="text" [(ngModel)]="product.price" class="form-control"/>
+
+        <button type="button" (click)="addProduct()" class="btn btn-default">新增</button>
+    </div>
+
+     
+    <table class="table table-bordered table-hover" id="productTable">
+        <tr>
+            <th>序號</th>
+            <th>品名</th>
+            <th>價格</th>
+            <th>功能</th>
+        </tr>
+        <ng-container *ngFor="let product of products | async">
+            <tr *ngIf="product != undefined">
+                <td>{{product.productId}}</td>
+                <td>{{product.name}}</td>
+                <td>{{product.price}}</td>               
+                <td>
+                    <button type="button" (click)="increasePrice(product.$key, product)" class="btn btn-danger">漲價</button>
+                    <button type="button" (click)="redeucePrice(product.$key, product)" class="btn btn-success">減價</button>
+                    <button type="button" *ngIf="selectedProduct == undefined || selectedProduct.productId != product.productId" (click)="showRecords(product)" class="btn btn-info">紀錄</button>
+                    <button type="button" *ngIf="selectedProduct != undefined && selectedProduct.productId == product.productId" (click)="hideRecords()" class="btn btn-secondary">隱藏</button>
+                    <button type="button" (click)="removeProduct(product.$key, product)" class="btn btn-warning">下架</button>
+                </td>
+            </tr>
+        </ng-container>
+
+        <tr>
+            <td *ngIf="products == null" style="height: auto;" colspan="7">
+                無商品資料
+            </td>
+        </tr>
+    </table>
+</section>
+
+<section id="section_records" [hidden]="selectedProduct == null" >
+    <h2>價格紀錄</h2>
+    
+    <table class="table table-bordered table-hover" id="recordTable">
+        <tr>
+            <td colspan="5">
+                <span>序號:<span *ngIf="selectedProduct != undefined">{{selectedProduct.productId}}</span></span>
+                <span>品名:<span *ngIf="selectedProduct != undefined">{{selectedProduct.name}}</span></span>
+            </td>
+        </tr>
+        <tr>
+            <th>序號</th>
+            <th>原價</th>
+            <th>調整</th>
+            <th>價格</th>
+            <th>時間</th>
+        </tr>
+        <ng-container *ngFor="let record of records | async">
+            <tr *ngIf="record != undefined ">
+                <td>{{record.recordId}}</td>
+                <td>{{record.oldPrice}}</td>
+                <td>{{record.changeAmount}}</td>
+                <td>{{record.newPrice}}</td>
+                <td>{{record.timeStamp}}</td>    
+            </tr>
+        </ng-container>
+    </table>
+</section>
