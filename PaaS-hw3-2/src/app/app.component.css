@@ -1,0 +1,137 @@
+section {
+    max-width: 1200px;
+    margin: 20px auto;
+  }
+
+  #section_product {
+    max-width: 850px;
+  }
+
+  #section_qrcode {
+    text-align: center;
+    max-width: 850px;
+  }
+
+  .navbar-brand span {
+    margin: 0 5px;
+    color: #fff;
+  }
+
+  h2 {
+    text-align: center;
+    font-weight: bold;
+  }
+
+  .btn {
+    margin: 0 5px;
+  }
+
+  .productImage {
+    text-align: center;
+    vertical-align: middle;
+    overflow: hidden;
+    height: 93px;
+  }
+
+  #productTable td {
+    text-align: center;
+    vertical-align: middle;
+    max-height: 110px;
+  }
+
+  #productTable th {
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  #userTable td, th {
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  #productTable img {
+    width: 140px;
+  }
+
+  .img_qrcode {
+    width: 200px;
+  }
+
+  #file_importProduct {
+    display: inline-block;
+  }section {
+    max-width: 1200px;
+    margin: 20px auto;
+  }
+
+  #section_product {
+    max-width: 850px;
+  }
+
+  #section_qrcode {
+    text-align: center;
+    max-width: 850px;
+  }
+
+  .navbar-brand span {
+    margin: 0 5px;
+    color: #fff;
+  }
+
+  h2 {
+    text-align: center;
+    font-weight: bold;
+  }
+
+  .btn {
+    margin: 0 5px;
+  }
+
+  .productImage {
+    text-align: center;
+    vertical-align: middle;
+    overflow: hidden;
+    height: 93px;
+  }
+
+  #productTable td {
+    text-align: center;
+    vertical-align: middle;
+    height: 110px;
+  }
+
+  #userTable td {
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  #productTable img {
+    width: 140px;
+  }
+  
+  .img_qrcode {
+    width: 200px;
+  }
+
+  #file_importProduct {
+    display: inline-block;
+  }
+
+  nav a {
+    padding: 5px 10px;
+    text-decoration: none;
+    margin-top: 10px;
+    display: inline-block;
+    background-color: #eee;
+    border-radius: 4px;
+  }
+  nav a:visited, a:link {
+    color: #607D8B;
+  }
+  nav a:hover {
+    color: #039be5;
+    background-color: #CFD8DC;
+  }
+  nav a.active {
+    color: #039be5;
+  }

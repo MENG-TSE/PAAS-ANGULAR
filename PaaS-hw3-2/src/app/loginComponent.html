@@ -1,0 +1,21 @@
+<nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container-fluid">
+        <div *ngIf="user != undefined" class="navbar-brand">
+            <span>{{user.cid}}</span>
+            <span>{{user.name}}</span>
+            <span>{{user.role}}</span>
+        </div>
+        
+        <div class="navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <form *ngIf="!logged" class="navbar-form navbar-left">
+                    <input type="text" [(ngModel)]="sid" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="學號">
+                    <input type="password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="手機">
+                    <button type="submit" (click)="login()" class="btn btn-default">登入</button>
+                </form>
+                <li *ngIf="logged"><a (click)="logout()">登出</a></li>
+            </ul>            
+        </div>       
+    </div>
+    
+</nav>
